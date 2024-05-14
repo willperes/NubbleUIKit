@@ -27,6 +27,8 @@ class LoginViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(contentView)
         
+        navigationController?.isNavigationBarHidden = true
+        
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: view.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

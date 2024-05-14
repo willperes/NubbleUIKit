@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginView: UIView {
+class LoginView: UIScrollView {
     private var contentView: UIView = {
         let cv = UIView()
         cv.translatesAutoresizingMaskIntoConstraints = false
@@ -17,7 +17,7 @@ class LoginView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: Typography.headingLarge.size, weight: .bold)
-        l.text = "Olá"
+        l.text = "Olá!"
         return l
     }()
     private var instructionsLabel: UILabel = {
@@ -39,12 +39,17 @@ class LoginView: UIView {
     }
     
     private func setupUI() {
+        backgroundColor = .systemBackground
+        
         addSubview(contentView)
+        
+        let padding = Spacing.s24.rawValue
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            contentView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(padding * 2))
         ])
         
         addSubview(helloLabel)
@@ -55,10 +60,11 @@ class LoginView: UIView {
         ])
         
         addSubview(instructionsLabel)
+        instructionsLabel.numberOfLines = 0
         NSLayoutConstraint.activate([
             instructionsLabel.topAnchor.constraint(equalTo: helloLabel.bottomAnchor, constant: Spacing.s8.rawValue),
             instructionsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            instructionsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            instructionsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
 }
