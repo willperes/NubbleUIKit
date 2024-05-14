@@ -66,5 +66,23 @@ class LoginView: UIScrollView {
             instructionsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             instructionsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
+        
+        let emailTextView = NATextView(label: "E-mail", placeholder: "Digite seu email")
+        emailTextView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(emailTextView)
+        NSLayoutConstraint.activate([
+            emailTextView.topAnchor.constraint(equalTo: instructionsLabel.bottomAnchor, constant: Spacing.s40.rawValue),
+            emailTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            emailTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+        
+        let passwordTextView = NATextView(label: "Senha", placeholder: "Digite sua senha")
+        passwordTextView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(passwordTextView)
+        NSLayoutConstraint.activate([
+            passwordTextView.topAnchor.constraint(equalTo: emailTextView.bottomAnchor, constant: Spacing.s20.rawValue),
+            passwordTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            passwordTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
     }
 }

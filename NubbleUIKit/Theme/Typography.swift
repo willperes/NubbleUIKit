@@ -12,6 +12,7 @@ enum Typography {
     case headingMedium
     
     case paragraphLarge
+    case paragraphMedium
     
     var size: CGFloat {
         switch self {
@@ -19,6 +20,7 @@ enum Typography {
         case .headingMedium: 22
             
         case .paragraphLarge: 18
+        case .paragraphMedium: 16
         }
     }
 }
